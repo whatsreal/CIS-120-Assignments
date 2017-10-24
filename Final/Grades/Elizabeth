@@ -1,0 +1,50 @@
+Playing:
+        The formatting is static (I am guessing to the width of a PowerShell Window)
+        so it looked a little weird at times, the *** would wrap onto a second line.
+
+        Timing could have used a little more refinement.  I did like the use of pauses.
+
+        It would have been a bit better to put the number from the roll on the same line
+        as the statement before it.
+
+        Took me a minute to understand that "The highest score for one dice game is X"
+        meant the highest score from a single game.
+
+        Personality in the help and rules
+
+        Checking for a saved game! Great!
+        
+        Inconsistent options kinda bugged me.  At one point I enter a number,
+        at another a lowercase word, at a third an uppercase word.
+
+        Could you have gauged where the player was and displayed the appropriate
+        help file instead of making them read a prelminiary help screen?
+
+main.py:
+        the if on line 19 could have been simplified to:
+        if num_play in (1,2,3) or even more elegantly 
+        if num_play in range(1,4)
+
+        line 23 is unnecessary, seeing as sco_re is always 0 set 
+        line 24 to new_player = Player(player_name, 0)
+
+        Line 93, why does "The roll is" and "Your first roll is" have \n before them,
+        but the others dont?
+
+        the my_vals list strikes me as unnecessary in the rolling. roughly 102-115
+        The same could be gotten by simply rolling all the dice and then 
+        accessing them with i.my_val to decide the largest one.
+        This holds true for both the myplay() and compplay() functions
+
+        you repeat a decent amount of the initial code.
+        Could you split off the lines variable and the creating of myDice list into a separate 
+        function?
+
+        The try/except statement starting on 477 is not doing anything.
+
+        If save.txt doesn't exist the game blows up.  Same for the help files.  
+        Check before opening a file to read.
+        Writing doesn't need a check as it overwrites the file anyway.
+
+General Notes:
+        More Commenting would have been good.  

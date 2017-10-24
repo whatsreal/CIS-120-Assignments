@@ -1,0 +1,39 @@
+Took me a minute to realize how to use the menu.  
+
+I like the layout of the screen.  One criticism: It might be better to be consistent.  If you call into the flop the table changes some which could be avoided.
+
+Pokerface.py:
+        import os.path is redundant with import os
+        
+        Calling help.url doesn't work on macs.  Ther eis a workaround, but it is more complex.
+        I'll accept this as you built on a PC.  Can't expect you to consider all possible 
+        mishaps from using different OSes.
+
+player.py:
+        Slightly better for lines 9-12 would be to make line 6 be:
+        def __init__(self, name, cash = 100): 
+        that provides the default. Then you only need line 12, not the if-else statement.
+        
+        You treat it as a dict in the rest of the program, I'll assume that is what it is.
+        Why are you initiating self.hand on line 17 as a dictionary when you state it 
+        is a list in receivecards()?
+
+        Your calchand() function could really use some more commenting.
+
+card.py:
+        I like the use of colors, though it doesn't affect your game.  
+        It is properly part of a card.
+
+        You thought through the card needs, more than just the val and num.
+        Storing extra information to make it easier to calculate the values you need is great.
+
+deck.py:
+        Nice, calling a function from init using self.createdeck()
+
+table.py:
+        Good detail on the burnnturn() incidentally the elif could be an else.
+
+Generic:
+        More Commenting!
+
+

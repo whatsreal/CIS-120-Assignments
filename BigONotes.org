@@ -1,0 +1,67 @@
+* Introduction
+** Rest of Class
+*** Computer Science
+    + Big O Notation
+    + Next Week: Search, Sort, Hash Tables
+*** Math: Project Euler
+    + projecteuler.net/problems
+    + We will not do 1-20 or the 20 most solved ones in class
+    + Start on them!
+*** Final Project
+    + Pick a game by next week
+    + Turn in a proposal next week.
+* Some Lessons from the Midterm
+** Variables/Objects
+*** Built-in
+    + variables are always objects of that type
+    + int, float, string, list, etc
+*** My Own Objects
+    + They are called the same way.
+    + Create your own objects.
+** Making Classes
+*** Classes need to be self-contained
+    + Interaction with user only through passing arguments
+    + Limit raw_input() or input() use inside classes
+    + Write class:
+        - MyClass
+        - search()
+        - add()
+*** Reusing Code
+    + __search()
+    + Helper functions!
+** Passing Arguments in to functions
+   + Allow the end-programmer to decide how they get the info
+   + The end programmer isn't always you!
+** Commenting
+*** Doc Comments
+    + Allows help in pydocs to describe what is happening
+    + """
+    + "This function takes x and returns y if z"
+*** Regular Comments
+    + Explain smaller parts inside of functions
+    + #
+    + Use on every function call, if-else,
+* Finger Exercises
+    + Just run through them one at a time.
+* Thinking about Programming
+** Measuring Time
+    + Time
+    + Memory Usage
+    + Disk Usage
+    + Network Usage.
+** "Basic Operations"
+    + Any built in statement: variable assignment, print, etc
+** Best Case/Worst Case
+   + Best case is always linear
+** Asymptotic Notation (Big O)
+*** Making it Simple: Discard!
+*** Constant Time
+*** Logarithmic Time
+*** Linear Time
+*** Log-Linear
+*** Polynomial
+*** Exponential
+** Specific Examples
+    + If-else: greater of the two blocks
+    + loops: always N
+    + nested loops n**x for however many x loops there are nested

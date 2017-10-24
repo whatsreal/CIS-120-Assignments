@@ -1,0 +1,127 @@
+Five Card Draw 
+
+Scoring: 10 points per hand won
+		 0 for folding
+		 -5 for losing
+		 
+Each player starts with 50 points
+		Deductions to 0 they are out
+		If Human player out game over
+
+Win Situation:
+	Arbitrary -- (human) player wants to stop	
+	OR only one player remains	 
+
+
+Cards - 52
+	Shuffle
+Deal
+Draw - Discard 
+Flip - Show Hands
+Scoring - Comparing hands
+	Values/Ranking
+Players
+	Hands - 1 per player: 5cards per hand
+	
+Playing a Hand: (one round)
+	Shuffle Cards
+	Deal -- one card at a time to each player
+		 -- 5 cards total
+	Discard & Draw Cards
+		Limit amount of cards swapped to 3?
+		Have to swap at least 1?
+	Allow Folding
+	Reveal Cards
+	Decide Winner
+		Tie? -- split win points between tie-ers
+		
+In Between Rounds:
+	Return Cards
+	Players leave/come?
+	
+Saved Games:
+	Just One At a time : 
+	
+High Scores:
+	One High Score File per number of starting players
+
+Help Key:
+	?
+
+Menu Structure:
+	First Menu:
+		Play -- New game unless saved exists. Force them to load that game.
+			Number of Players (prompt -- if new game)
+			Enter your name
+		See High Scores -- Conditional if there are high scores
+			One option for each type of high Score:
+				"2 player high Scores 
+				 3 player high scores
+				 4 player high scores"
+			Help "Select the player number by entering 2-4"
+			Return to Main Menu
+		Tutorial
+		Help for menu (contextual)
+		Quit
+
+Define Classes:
+	Card
+	Deck of Cards
+	Player
+		Computer Player
+	
+
+Functions inside Classes:
+	Card CLASS
+		Functions:
+			init
+			printCard -- Why? What?
+		Attributes:
+			Rank
+			Suit
+	œœ
+	Deck of Cards CLASS
+		Functions:
+			init
+			shuffle
+			deal
+		Attributes:
+			list of Card objects
+			
+	Player CLASS
+		Functions:
+			init
+			TradeCards
+		Attributes:
+			hand (of Card objects)
+			Name
+			Score
+
+	ComputerPlayer CLASS inherits from Player
+		Functions:
+			KeepOrDraw
+			FoldOrContinue
+		Attributes:
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

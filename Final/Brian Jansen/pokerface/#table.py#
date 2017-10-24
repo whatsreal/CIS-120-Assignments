@@ -1,0 +1,136 @@
+import os
+import os.path
+import operator
+import card, deck, player, npc
+from random import shuffle, randint, choice
+from sys import exit
+from collections import Counter	
+
+class table(object):
+	def __init__(self,deck,npccount,player):
+		self.deck = deck
+		self.smallblind = 5
+		self.bigblind = 10
+		self.startingcash = 100
+		self.playerlist = {}
+		self.flop = {}		
+		
+	def addplayer(self, player, cash):
+		self.playerlist[player.name] = player
+		if not cash:
+			player.cash = self.startingcash
+		else:
+			player.cash = cash
+		
+	def populatetable(self,deck,npccount,player):
+		namefl = "names.pf"
+		namefile = open(namefl)
+		nametext = namefile.read()
+		namefile.close()
+		nametext = nametext.replace('"', '')
+		namelist = nametext.split(",")
+		shuffle(namelist)
+		count = 0
+		for i in range(0,npccount):
+			dup = True
+			while dup == True:
+				count += 1
+				randname = namelist[count]
+				if randname != player.name:
+					dup = False
+			self.playerlist[randname] = npc(randname,self,False,False,False,False)
+		
+	def deal(self, deck):
+		for i in self.playerlist.keys():
+			for p in range(0,2):
+				card = deck.cardkeylist.pop()
+				self.playerlist[i].hand[card] = deck.deckdict[card].numval
+	
+	def decidewinner(self, deck):
+		handname = {}
+		handname["straight"] = "Straight"
+		handname["flush"] = "Flush"
+		handname["fullhouse"] = "Full House"
+		handname["twokind"] = "Two of a Kind"
+		handname["threekind"] = "Three of a Kind"
+		handname["fourkind"] = "Four of a Kind"
+		handname["twopair"] = "Two Pair"
+		handname["pocketdouble"] = "Pocket Doubles"
+		handname["straightflush"] = "Straight Flush"
+		handname["highcard"] = "High Card"
+		handrank = ["straightflush", "fourkind", "fullhouse", "flush", "straight", "threekind", "twopair", "twokind"]
+		winlist = []
+		victordict = {}
+		winner = False
+		draw = False
+		for i in handrank:
+			for p in self.playerlist.keys():
+				if self.playerlist[p].handstat[i] == True and self.playerlist[p].fold == False:
+					winlist.append(p)
+					winner = True
+					winninghand = i
+			if winner == True:
+				break
+		highcard = 0
+		if len(winlist) > 1:
+			victor = False
+			drawlist = []
+			for i in winlist:
+				if self.playerlist[i].handstat["highcard"] > highcard:
+					highcard = self.playerlist[i].handstat["highcard"]
+					victor = i
+					draw = False
+				elif self.playerlist[i].handstat["highcard"] == highcard:
+					drawlist.append(i)
+					draw = True
+		elif len(winlist) == 0:
+			victor = False
+			drawlist = []
+			for p in self.playerlist.keys():
+				if self.playerlist[p].handstat["highcard"] > highcard:
+					highcard = self.playerlist[p].handstat["highcard"]
+					victor = p
+					draw = False
+					winninghand = "highcard"
+				elif self.playerlist[p].handstat["highcard"] == highcard:
+					drawlist.append(p)
+					draw = True					
+		else:
+			victor = winlist[0]
+		victordict["name"] = victor
+		victordict["hand"] = handname[winninghand]
+		victordict["highcard"] = highcard
+		victordict["draw"] = draw
+		return victordict
+
+	def debugflop(self, deck):
+		for i in range(0,5):
+			card = deck.cardkeylist.pop()
+			self.flop[card] = deck.deckdict[card].numval
+		print self.flop
+		return self.flop
+		
+	def burnturn(self,deck,phase,flop):
+		if phase == "flop":
+			for i in range(0,4):
+				if i > 0:
+					card = deck.cardkeylist.pop()
+					self.flop[card] = deck.deckdict[card].numval
+		elif phase == "turn" or phase == "river":
+			for i in range(0,2):
+				if i > 0:
+					card = deck.cardkeylist.pop()
+					self.flop[card] = deck.deckdict[card].numval
+		return self.flop
+			
+	def npcbetcall(self, flop, phase):
+		foldlist = []
+		inlist = []
+		for i in self.playerlist.keys():
+			if self.playerlist[i].npc == True and self.playerlist[i].fold == False:
+				if self.playerlist[i].calcmove(self.deck,flop,phase) == "fold":
+					foldlist.append(i)
+					self.playerlist[i].fold = True
+				else:
+					inlist.append(i)
+		return foldlist, inlist

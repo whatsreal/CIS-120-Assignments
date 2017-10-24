@@ -1,0 +1,34 @@
+Final Project Definition.
+
+      Basic things all games will need:
+            Menu System -- May be more than one level of menus.
+            AI -- virtual players
+            Ability to save a game and load it again
+            High Score System.
+
+     Game Specific Things:
+            Make sure you look at the email I sent today.
+            Follow ALL of the instructions in the rules you linked.
+            Any variants included there need to be implemented.
+                (If you think that's too much, discuss it with me.)
+
+Grading Rubric
+
+        Code/Project: 73%
+              Working!
+              Refined -- No unnecessary extras
+              Commented Well!
+              Includes all required portions (see above)
+
+        Presentation: 20%
+              Run through the game.
+              Explain design decisions.
+              Answer Questions.
+
+        Interaction: 5%
+              Ask questions of other people.
+              Eat Pizza.
+
+        Two Early Asignments: 2%
+             Due April 28 and May 5
+             See Syllabus

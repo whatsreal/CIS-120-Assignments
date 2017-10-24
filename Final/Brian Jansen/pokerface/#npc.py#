@@ -1,0 +1,79 @@
+import os
+import os.path
+import operator
+import player
+from random import shuffle, randint, choice
+from sys import exit
+from collections import Counter	
+
+class npc(player):
+	def __init__(self, name, table, cash, skill, intelligence, predictability):
+		super(npc, self).__init__(name,table)
+		self.skill = skill
+		self.intelligence = intelligence
+		self.predictability = predictability
+		if not cash:
+			self.cash = table.startingcash
+		else:
+			self.cash = cash
+		self.npc = True
+	
+	def calcmove(self, deck, flop, phase):
+		foldhands = [[2, 7], [2, 8]]
+		betcond = ["twopair", "threekind", "straight", "flush", "fullhouse", "fourkind", "straightflush"]
+		maybecond = ["twokind"]
+		if phase == "deal":
+			if self.hand.values()[0] == self.hand.values()[1]:
+				return "call"
+			elif self.hand.values()[0] == self.hand.values()[1]-1:
+				return "call"
+			elif deck.deckdict[self.hand.keys()[0]].suit == deck.deckdict[self.hand.keys()[1]].suit:
+				return "call"
+			for i in foldhands:
+				if i.sort() == self.hand.values().sort():
+					return "fold"
+			chance = randint(1,100)
+			if chance > 75:
+				return "fold"
+			else:
+				return "call"
+				
+		else:
+			self.calchand(deck,flop,phase)
+			chancea = randint(1,100)
+			chanceb = randint(1,100)
+			chancec = randint(1,100)
+			chanced = randint(1,100)
+			if phase == "flop":
+				mincard = 2
+				percmod = 40
+				phasenum = 1
+			elif phase == "turn":
+				mincard = 3
+				percmod = 30
+				phasenum = 2
+			elif phase == "river":
+				mincard = 4
+				percmod = 20
+				phasenum = 3
+			elif phase == "show":
+				mincard = 3
+				percmod = 15
+				phasenum = 4
+			for i in betcond:
+				if self.handstat[i] == True:
+					return "call"
+			for i in maybecond:
+				if self.handstat[i] == True:
+					if chancea < percmod:
+						return "call"
+			if self.handstat["highsuit"] > mincard:
+				if chanceb < percmod:
+					return "call"
+			if self.handstat["highstreak"] > mincard:
+				if chancec < percmod:
+					return "call"
+			if chanced > percmod:
+				return "fold"
+			else:
+				return "call"

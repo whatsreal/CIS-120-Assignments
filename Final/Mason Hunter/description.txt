@@ -1,0 +1,87 @@
+Mason Hunter CIS 120 final project description
+
+Scoring
+    - numbered cards = number, face cards = 10, ace = 1 or 10
+    
+Deal
+    -2 cards to a player, then rotate to next player
+        The traditional method of giving each player two cards, then giving the next
+        player two cards, etc. until everyone has two cards.
+
+Dealer
+    The dealer includes the card deck, which is a compilation of 52 different cards
+    of tuple form: (Actual Card (i.e Ace of Spades), 21 hand value).  The dealer
+    will be the facilitator and all card related business and winner determining
+    will run through him.
+Players
+    - 1 hand per player
+    - Before each hand player wagers an amount (everybody starts with 5$)
+        Everybody will start the round game with 5 $, then wagers to either gain
+        or lose it.  If a player gets down to zero then they are kicked out.
+    - 4 players, one is user
+        The players will be static characters which can be eliminated, but come
+        back to life every time a new game is started.  They are different in styles,
+        gambling tendencies, and (hopefully) they will have quips to say in 
+        various situations.
+Cards
+    -52 cards
+    -standard values, ace can be either 1 or 11 (but must be declared when you
+     receive it, you can't change your mind later)
+    -There won't be a shuffle function, but instead it will be a list of cards (see
+      above) with a random integer generator from between 0 and len(deck) which will
+      remove a card from the deck and give it to a player.
+    
+Save game
+    -save a profile (but you can't quit mid-hand) with total amount won.  Since in
+     real life you can't leave the table in the middle of a hand.  Each player will
+     have a profile that gets saved with their total winnings.
+    
+High Score
+    - most won to date for any profile.
+    
+-----------------------------------------------------------
+Start Conditions:
+    - Disclaimer: once a hand/round starts there's no going back (no help/saving)
+          - inside the round = inside the iron curtain
+    - Everybody has 5$ to start
+    - Name yourself (computer players are already named)
+   
+Running a round:
+    - Wager (must be in whole dollars (i.e. can't wager 36 cents)
+    - Deal
+        - each player gets dealt two cards
+    - Hit or sit
+        - Player can choose whether to hit or sit
+        - all players who decide to hit will rotate hits one at a time
+    - Deal to hittees
+    - Count scores
+        - standard values
+        - Aces can be either 1 or 10 (but must be declared when received, can't 
+          change your mind)
+    - Determine winner
+
+Win situations:
+    - Closest to 21 without going over wins
+    - Tie = split the pot.  Since there will be a measure of gambling, I feel that
+                            splitting the pot will be the most appropriate action
+                            to take in the event of a tie.
+  
+Between Rounds:
+    - Automatically save user profile
+    - Allow user to leave
+    - Kick out players with no more money
+    - Generate new computer players if user is alone
+    
+High Scores:
+
+    - High score is total amount won by a single profile
+    
+--------------------------------------------------------------
+Menu Structure:
+    Start New Profile
+    Load Existing profile
+    Rules
+    High Score
+        - Return to main menu
+    Help
+    Quit
