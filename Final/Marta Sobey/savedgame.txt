@@ -1,3 +1,0 @@
-Dan	9 Diamonds 9, 2 Spades 2, 4 Clubs 4, 10 Clubs 10, 8 Spades 8, 2 Spades 2, 7 Spades 7, 12 Spades Queen, 9 Spades 9, 6 Clubs 6, 5 Hearts 5, 11 Diamonds Jack, 
-George	8 Clubs 8, 5 Diamonds 5, 12 Spades Queen, 4 Diamonds 4, 7 Hearts 7, 7 Diamonds 7, 4 Hearts 4, 7 Spades 7, 8 Hearts 8, 8 Diamonds 8, 7 Clubs 7, 11 Hearts Jack, 7 Clubs 7, 12 Diamonds Queen, 6 Diamonds 6, 
-Marta	3 Hearts 3, 9 Spades 9, 2 Hearts 2, 4 Diamonds 4, 11 Spades Jack, 12 Clubs Queen, 2 Diamonds 2, 8 Spades 8, 4 Clubs 4, 7 Hearts 7, 11 Clubs Jack, 3 Hearts 3, 11 Clubs Jack, 5 Clubs 5, 4 Spades 4, 6 Spades 6, 9 Clubs 9, 11 Spades Jack, 8 Clubs 8, 8 Hearts 8, 9 Clubs 9, 6 Clubs 6, 2 Clubs 2, 6 Spades 6, 

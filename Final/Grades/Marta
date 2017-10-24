@@ -1,9 +1,0 @@
-Playing:
-        I found it really difficult to compare the cards in the way it was printed.
-
-        Really not sure about printing "X has enough cards to continue" for each turn.
-        
-
-final.py:
-        line 77 the try/except loop isnt catching anything. Your input is text.  
-        Some of the comments reflect a mis-understanding of what is the code is doing
