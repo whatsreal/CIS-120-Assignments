@@ -1,6 +1,0 @@
-Elizabeth	7736008782	LSM	Myself
-Cristina	2243926288	LCA	Mom
-Bob	7732028976	Builder	Servant
-Larry	7738955452	LCA	Dad
-Kiki	8475448760	NPUstudent	Friend
-Billy	7609877890	Starbucks	Friend

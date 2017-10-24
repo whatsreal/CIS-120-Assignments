@@ -1,9 +1,0 @@
-Mostly pretty good.
-
-Couple of things:
-
-1) You should be checking for dups at add time. Makes more sense to simply not allow the addition of duplicates rather than require the end user to run it later.
-2) Inside the dupcheck() you are using unnecessary number of for loops.  Both of the for i in contactlist loops could have been done in the same loop saving you O(n) of processing time.
-3)The if else statement at the end could be done as if/elif/else instead of if/else(if/else)
-
-Otherwise nice!

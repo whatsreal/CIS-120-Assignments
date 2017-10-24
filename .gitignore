@@ -2,4 +2,9 @@
 *.key
 *.pdf
 backup/
-*.azw3\n*.mbp\n*.phl\n*.org
+*.azw3
+*.mbp
+*.phl
+*.org
+Final/
+

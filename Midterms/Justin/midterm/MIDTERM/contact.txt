@@ -1,5 +1,0 @@
-Justin	TIU	626-320-9366	Me	
-Dan	TIU Faculty	1234	Student	
-Marta	TIU	1	Classmate	
-Brian	IT	123-234-3456	classmate	
-Mason	Library	934-923-7748	Suitemate	
