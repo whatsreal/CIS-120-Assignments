@@ -1,3 +1,5 @@
 ./ProjectEuler
 *.key
 *.pdf
+backup/
+*.azw3\n*.mbp\n*.phl\n*.org
