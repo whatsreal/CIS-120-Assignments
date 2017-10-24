@@ -7,4 +7,5 @@ backup/
 *.phl
 *.org
 Final/
-
+!Final/Dan's Final
+Final
